@@ -1,0 +1,300 @@
+/*
+ * @brainstorm/design-system — design tokens
+ *
+ * The canonical token set for the "Instrument Console" visual language used
+ * across the Brainstorm product family (BrainstormRouter, BrainstormMSP,
+ * BrainstormGTM, Peer10, EventFlow, Hive, etc.).
+ *
+ * Philosophy: near-colorless chrome. All chroma comes from content
+ * (provider logos, charts, status semantics). Pure white is the rare
+ * accent that means "the active / focused / committed thing."
+ *
+ * Origin: extracted 2026-04-18 from brainstormrouter/site/dashboard.
+ * This file is now the source of truth. BR will re-import in a later phase.
+ *
+ * Consumers: import this file once at the application entry point.
+ *   Next.js (app router):  import "@brainstorm/design-system/tokens.css";
+ *   Vite:                  import "@brainstorm/design-system/tokens.css";
+ *   Plain HTML:            <link rel="stylesheet" href=".../tokens.css" />
+ */
+:root {
+  /* ── Ink: cool graphite canvas ── */
+  --ink-deep: #08090B;
+  --ink-0: #0C0D10;            /* sidebar wall */
+  --ink-1: #111215;            /* main canvas */
+  --ink-2: #16181C;            /* panel surface */
+  --ink-3: #1C1E23;            /* raised / hover */
+  --ink-4: #23262C;            /* emphasis */
+  --ink-line: rgba(232, 236, 244, 0.06);
+  --ink-line-strong: rgba(232, 236, 244, 0.11);
+  --ink-line-emph: rgba(232, 236, 244, 0.18);
+  --ink-line-heavy: rgba(232, 236, 244, 0.28);
+
+  /* ── Bone: cool off-whites ── */
+  --bone: #E8ECF4;             /* primary text */
+  --bone-dim: #B2B7C2;         /* secondary text */
+  --bone-mute: #7A7F89;        /* tertiary / labels */
+  --bone-faint: #4A4E57;       /* disabled / divider */
+
+  /* ── Highlight: the ONE accent, pure white, rare ── */
+  --hi: #FFFFFF;
+  --hi-glow: rgba(255, 255, 255, 0.14);
+  --hi-haze: rgba(255, 255, 255, 0.05);
+  --hi-line: rgba(255, 255, 255, 0.28);
+  --hi-wash: rgba(255, 255, 255, 0.015);
+
+  /* ── Depth cues (subconscious 3D) ── */
+  --top-highlight: rgba(255, 255, 255, 0.06);
+  --top-highlight-soft: rgba(255, 255, 255, 0.035);
+  --bot-recession: rgba(0, 0, 0, 0.45);
+  --inset-hairline: rgba(255, 255, 255, 0.04);
+
+  /* ── Semantic status — cool-leaning, reserved for real signals ── */
+  --sig-ok: #7EC89C;
+  --sig-ok-glow: rgba(126, 200, 156, 0.14);
+  --sig-ok-haze: rgba(126, 200, 156, 0.05);
+  --sig-warn: #D4B76A;
+  --sig-warn-glow: rgba(212, 183, 106, 0.14);
+  --sig-warn-haze: rgba(212, 183, 106, 0.05);
+  --sig-err: #D4675A;
+  --sig-err-glow: rgba(212, 103, 90, 0.14);
+  --sig-err-haze: rgba(212, 103, 90, 0.05);
+  --sig-info: #7FA8D4;
+  --sig-info-glow: rgba(127, 168, 212, 0.14);
+  --sig-info-haze: rgba(127, 168, 212, 0.05);
+  --sig-dust: #5A5F68;
+
+  /* ── Legacy warm-palette aliases (remapped to the new system) ── */
+  --amber: var(--hi);
+  --amber-hot: var(--hi);
+  --amber-deep: var(--bone-dim);
+  --amber-glow: var(--hi-glow);
+  --amber-haze: var(--hi-haze);
+  --amber-line: var(--hi-line);
+  --amber-wash: var(--hi-wash);
+  --ice: var(--sig-info);
+  --ice-dim: var(--bone-dim);
+  --ice-glow: var(--sig-info-glow);
+  --ice-haze: var(--sig-info-haze);
+  --sage: var(--sig-ok);
+  --sage-glow: var(--sig-ok-glow);
+  --sage-haze: var(--sig-ok-haze);
+  --rust: var(--sig-err);
+  --rust-glow: var(--sig-err-glow);
+  --rust-haze: var(--sig-err-haze);
+  --ochre: var(--sig-warn);
+  --dust: var(--sig-dust);
+  --paper: var(--bone);
+  --paper-dim: var(--bone-dim);
+  --paper-mute: var(--bone-mute);
+  --paper-faint: var(--bone-faint);
+
+  /* ── Typography ── */
+  --font-display: "Fraunces", "Times New Roman", Georgia, serif;
+  --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Berkeley Mono", "SF Mono", "Menlo", monospace;
+  --font-data: var(--font-mono);
+  --font-ui: "Figtree", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Fraunces variable-font axis settings */
+  --fraunces-body: "opsz" 14, "SOFT" 50, "wght" 500;
+  --fraunces-head: "opsz" 72, "SOFT" 40, "wght" 440;
+  --fraunces-hero: "opsz" 144, "SOFT" 30, "wght" 420;
+
+  /* Modular scale anchored at 14px — minor third (1.2) */
+  --text-2xs: 0.679rem;        /*  9.5px */
+  --text-xs: 0.815rem;         /* 11.4px */
+  --text-sm: 0.929rem;         /* 13px   */
+  --text-base: 1rem;           /* 14px   */
+  --text-md: 1.143rem;         /* 16px   */
+  --text-lg: 1.428rem;         /* 20px   */
+  --text-xl: 1.857rem;         /* 26px   */
+  --text-2xl: 2.571rem;        /* 36px   */
+  --text-3xl: 3.571rem;        /* 50px   */
+  --text-4xl: 5rem;            /* 70px — hero numerals */
+
+  /* ── Spacing (4px grid) ── */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── Rhythm tiers (8px baseline grid) ── */
+  --rhythm-e-tight: 4px;
+  --rhythm-e-default: 8px;
+  --rhythm-e-loose: 12px;
+  --rhythm-c-tight: 16px;
+  --rhythm-c-default: 24px;
+  --rhythm-c-loose: 32px;
+  --rhythm-s-tight: clamp(40px, 4vh, 48px);
+  --rhythm-s-default: clamp(48px, 5vh, 56px);
+  --rhythm-s-loose: clamp(56px, 6vh, 64px);
+  --rhythm-p-top: clamp(48px, 6vh, 64px);
+  --rhythm-p-bottom: clamp(64px, 8vh, 96px);
+
+  /* ── Corners: precise, not pillowy ── */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-full: 999px;
+  --radius-pill: 999px;
+
+  /* ── Panel shadows: 3-layer treatment for "machined" depth ── */
+  --shadow-panel: 0 1px 0 0 var(--top-highlight) inset,
+          0 -1px 0 0 rgba(0, 0, 0, 0.25) inset,
+          0 0 0 1px var(--ink-line),
+          0 28px 56px -28px rgba(0, 0, 0, 0.65);
+  --shadow-raised: 0 1px 0 0 var(--top-highlight) inset,
+          0 -1px 0 0 rgba(0, 0, 0, 0.35) inset,
+          0 0 0 1px var(--ink-line-strong),
+          0 36px 72px -32px rgba(0, 0, 0, 0.75);
+  --shadow-flush: 0 1px 0 0 var(--top-highlight-soft) inset,
+          0 -1px 0 0 rgba(0, 0, 0, 0.2) inset,
+          0 0 0 1px var(--ink-line);
+  --shadow-float: 0 28px 64px -22px rgba(0, 0, 0, 0.8);
+  --shadow-modal: 0 44px 88px -22px rgba(0, 0, 0, 0.9);
+  --shadow-focus: 0 0 0 1px var(--hi),
+          0 0 0 3px var(--ink-0),
+          0 0 0 4px var(--hi-line);
+  --shadow-amber: 0 0 0 1px var(--amber-line),
+          0 0 28px -6px var(--amber-glow);
+  --shadow-led: 0 0 12px -2px currentColor;
+
+  /* ── Motion ── */
+  --duration-instant: 0ms;
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-slow: 380ms;
+  --duration-panel: 540ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-instrument: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1);
+
+  /* ── Layout ── */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 56px;
+  --header-height: 56px;
+  --page-max-width: 1440px;
+  --page-gutter: 32px;
+
+  /* ── Surfaces / overlays ── */
+  --overlay: rgba(6, 4, 2, 0.72);
+  --hover-lift: rgba(255, 232, 180, 0.035);
+  --hover-lift-strong: rgba(255, 232, 180, 0.06);
+  --noise-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.35' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.91 0 0 0 0 0.93 0 0 0 0 0.96 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* ── Semantic role tokens (the layer most consumers should reference) ── */
+  --color-bg: var(--ink-1);
+  --color-bg-subtle: var(--ink-0);
+  --color-bg-element: var(--ink-2);
+  --color-bg-element-hover: var(--ink-3);
+  --color-surface: var(--ink-2);
+  --color-surface-raised: var(--ink-3);
+  --color-border: var(--ink-line);
+  --color-border-subtle: var(--ink-line-strong);
+  --color-text: var(--paper);
+  --color-text-secondary: var(--paper-dim);
+  --color-text-tertiary: var(--paper-mute);
+  --color-accent: var(--amber);
+  --color-accent-hover: var(--amber-hot);
+  --color-success: var(--sage);
+  --color-danger: var(--rust);
+  --color-warning: var(--ochre);
+  --color-info: var(--ice);
+
+  /* ── Chart palette: muted "paint" colors that read as data, not chrome ── */
+  --paint-coral: #E08268;
+  --paint-teal: #5FAEB4;
+  --paint-moss: #94B07A;
+  --paint-brass: #D4B06A;
+  --paint-lavender: #AB9DBB;
+  --paint-slate: #8BA0BE;
+  --paint-clay: #C17F6C;
+  --paint-cream: #D9C9A0;
+  --paint-coral-wash: rgba(224, 130, 104, 0.16);
+  --paint-teal-wash: rgba(95, 174, 180, 0.16);
+  --paint-moss-wash: rgba(148, 176, 122, 0.16);
+  --paint-brass-wash: rgba(212, 176, 106, 0.16);
+  --paint-lavender-wash: rgba(171, 157, 187, 0.16);
+  --paint-slate-wash: rgba(139, 160, 190, 0.16);
+  --paint-clay-wash: rgba(193, 127, 108, 0.16);
+  --paint-cream-wash: rgba(217, 201, 160, 0.16);
+
+  --chart-grid: var(--ink-line);
+  --chart-axis: var(--ink-line-strong);
+  --chart-label: var(--bone-mute);
+  --chart-tick: var(--bone-faint);
+  --chart-1: var(--paint-coral);
+  --chart-2: var(--paint-teal);
+  --chart-3: var(--paint-moss);
+  --chart-4: var(--paint-brass);
+  --chart-5: var(--paint-lavender);
+  --chart-6: var(--paint-slate);
+  --chart-7: var(--paint-clay);
+  --chart-8: var(--paint-cream);
+
+  /* ── Short aliases (legacy MSP / convenience) ── */
+  --bg: var(--ink-1);
+  --bg-subtle: var(--ink-0);
+  --bg-card: var(--ink-2);
+  --bg-card-hover: var(--ink-3);
+  --surface: var(--ink-2);
+  --surface-raised: var(--ink-3);
+  --border: var(--ink-line);
+  --border-light: var(--ink-line-strong);
+  --text: var(--paper);
+  --text-secondary: var(--paper-dim);
+  --text-tertiary: var(--paper-mute);
+  --accent: var(--amber);
+  --accent-light: var(--amber-hot);
+  --accent-subtle: var(--amber-haze);
+  --accent-border: var(--amber-line);
+  --accent-glow: var(--amber-glow);
+  --success: var(--sage);
+  --success-subtle: var(--sage-glow);
+  --danger: var(--rust);
+  --danger-subtle: var(--rust-glow);
+  --danger-hover: var(--rust);
+  --warning: var(--ochre);
+  --warning-subtle: var(--amber-haze);
+  --glass-bg: var(--ink-2);
+  --glass-border: var(--ink-line);
+  --glass-blur: 0px;
+  --neon-blue: var(--ice);
+  --neon-cyan: var(--ice);
+  --neon-purple: var(--amber);
+  --neon-green: var(--sage);
+  --neon-amber: var(--amber-hot);
+  --neon-red: var(--rust);
+
+  /* ── Event-stream / data-table tokens (BR conventions) ── */
+  --ev-border: var(--ink-line);
+  --ev-border-hover: var(--ink-line-strong);
+  --ev-text-dim: var(--paper-mute);
+  --ev-grid: 8px;
+  --ev-chart-fill: 0.10;
+
+  --color-overlay: var(--overlay);
+  --color-header-backdrop: rgba(15, 13, 11, 0.86);
+  --color-hover-overlay: var(--hover-lift);
+  --status-healthy: var(--sage);
+  --status-degraded: var(--ochre);
+  --status-critical: var(--rust);
+  --status-inactive: var(--dust);
+}

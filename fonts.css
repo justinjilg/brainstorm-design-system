@@ -1,0 +1,12 @@
+/*
+ * @brainstorm/design-system — font loading helper
+ *
+ * Loads Fraunces (display serif), IBM Plex Sans (body), JetBrains Mono
+ * (data), and Figtree (UI titles) from Google Fonts. Intended for plain
+ * HTML / Vite consumers.
+ *
+ * Next.js consumers should NOT import this file. Use `next/font/google`
+ * in your root layout instead — it self-hosts the fonts at build time
+ * and avoids the runtime FOUT that @import causes.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&family=Figtree:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");

@@ -1,0 +1,35 @@
+{
+  "name": "@brainstorm/design-system",
+  "version": "0.1.0",
+  "description": "Shared design tokens and primitives for the Brainstorm product family — the 'Instrument Console' visual language.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "files": [
+    "tokens.css",
+    "fonts.css",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./fonts.css": "./fonts.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "verify": "node -e \"const p=require('./package.json'); console.log('package:', p.name, p.version); console.log('exports:', Object.keys(p.exports).join(', '));\""
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "css",
+    "brainstorm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brainstorm/design-system.git"
+  }
+}
