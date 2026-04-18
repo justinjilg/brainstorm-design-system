@@ -16,19 +16,44 @@ Status colors (`--sig-ok`, `--sig-warn`, `--sig-err`, `--sig-info`) are reserved
 
 ## Install
 
-This package is consumed via local `file:` paths from sibling directories in `~/Projects/`. No registry, no publishing — yet.
-
-In any consumer project's `package.json`:
+This package is consumed directly from GitHub. Pin to a specific commit sha for reproducible installs:
 
 ```json
 {
   "dependencies": {
-    "@brainstorm/design-system": "file:../brainstorm-design-system"
+    "@brainstorm/design-system": "github:justinjilg/brainstorm-design-system#<commit-sha>"
   }
 }
 ```
 
-Then `npm install` (or `pnpm install`). The dependency is symlinked, so edits propagate without rebuilding.
+Then `npm install` (or `pnpm install`). npm clones the repo at build time, so the package is available to any build environment with GitHub network access — local dev, CI, DigitalOcean App Platform, Vercel, etc.
+
+### Why a git URL and not a file path or npm registry
+
+- **`file:` paths** work locally but break remote builds — the peer
+  directory doesn't exist in the CI workspace. DO App Platform,
+  Vercel, and GitHub Actions all only check out the consumer's repo.
+- **npm registry** is the cleanest long-term answer, but requires
+  auth tokens on every consumer and CI system. Overkill until there
+  are ≥3 products consuming it.
+- **Git URL** threads the needle: reproducible via commit sha, works
+  in every build environment with zero auth, no registry setup.
+
+### Local development on both repos simultaneously
+
+If you're actively editing this package and want changes to appear
+immediately in a consumer without committing + pushing:
+
+```bash
+# From the design-system repo:
+npm link
+
+# From the consumer repo (e.g. brainstormmsp/frontend):
+npm link @brainstorm/design-system
+```
+
+When done, `npm unlink @brainstorm/design-system` in the consumer and
+run `npm install` to restore the git-pinned version.
 
 ---
 
