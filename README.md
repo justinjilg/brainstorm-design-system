@@ -75,46 +75,48 @@ Or reference directly in HTML:
 
 Tokens are layered. **Reference the highest-level layer your component needs.** Reaching for raw `--ink-2` when `--color-surface` exists creates fragility.
 
+All tokens are prefixed `--bds-` (Brainstorm Design System) so they never collide with consumer tokens. When you see `--bds-X`, you know it comes from this package.
+
 | Layer | Purpose | Example |
 |---|---|---|
-| **Primitive** | Raw scale | `--ink-2`, `--bone-mute`, `--space-4` |
-| **Semantic** | What it means in UI | `--color-surface`, `--color-text-secondary` |
-| **Component** | Specific component need | `--shadow-panel`, `--sidebar-width` |
+| **Primitive** | Raw scale | `--bds-ink-2`, `--bds-bone-mute`, `--bds-space-4` |
+| **Semantic** | What it means in UI | `--bds-color-surface`, `--bds-color-text-secondary` |
+| **Component** | Specific component need | `--bds-shadow-panel`, `--bds-sidebar-width` |
 
 ### Color
 
-- `--ink-0` through `--ink-4` — graphite background steps (sidebar wall → emphasis)
-- `--bone`, `--bone-dim`, `--bone-mute`, `--bone-faint` — text hierarchy
-- `--hi`, `--hi-glow`, `--hi-line` — pure white accent (use sparingly)
-- `--sig-ok`, `--sig-warn`, `--sig-err`, `--sig-info` — status signals
-- `--paint-coral` ... `--paint-cream` — chart palette (8 muted colors)
+- `--bds-ink-0` through `--bds-ink-4` — graphite background steps (sidebar wall → emphasis)
+- `--bds-bone`, `--bds-bone-dim`, `--bds-bone-mute`, `--bds-bone-faint` — text hierarchy
+- `--bds-hi`, `--bds-hi-glow`, `--bds-hi-line` — pure white accent (use sparingly)
+- `--bds-sig-ok`, `--bds-sig-warn`, `--bds-sig-err`, `--bds-sig-info` — status signals
+- `--bds-paint-coral` ... `--bds-paint-cream` — chart palette (8 muted colors)
 
 ### Type
 
-- `--font-display` — Fraunces (variable serif, for headings/heroes)
-- `--font-sans` — IBM Plex Sans (body)
-- `--font-mono` — JetBrains Mono (data, code, numerals)
-- `--font-ui` — Figtree (page titles only)
-- `--text-2xs` ... `--text-4xl` — modular scale anchored at 14px
+- `--bds-font-display` — Fraunces (variable serif, for headings/heroes)
+- `--bds-font-sans` — IBM Plex Sans (body)
+- `--bds-font-mono` — JetBrains Mono (data, code, numerals)
+- `--bds-font-ui` — Figtree (page titles only)
+- `--bds-text-2xs` ... `--bds-text-4xl` — modular scale anchored at 14px
 
 ### Spacing & layout
 
-- `--space-1` (4px) ... `--space-24` (96px) — 4px grid
-- `--rhythm-e-*` (element), `--rhythm-c-*` (component), `--rhythm-s-*` (section) — vertical rhythm tiers
-- `--sidebar-width` (240px), `--header-height` (56px) — shell dimensions
+- `--bds-space-1` (4px) ... `--bds-space-24` (96px) — 4px grid
+- `--bds-rhythm-e-*` (element), `--bds-rhythm-c-*` (component), `--bds-rhythm-s-*` (section) — vertical rhythm tiers
+- `--bds-sidebar-width` (240px), `--bds-header-height` (56px) — shell dimensions
 
 ### Depth
 
-- `--shadow-panel` — standard raised panel (3-layer machined effect)
-- `--shadow-raised` — elevated above panel
-- `--shadow-flush` — pressed-in effect
-- `--shadow-modal`, `--shadow-float` — overlays
-- `--shadow-focus` — focus ring (double-ring bullseye)
+- `--bds-shadow-panel` — standard raised panel (3-layer machined effect)
+- `--bds-shadow-raised` — elevated above panel
+- `--bds-shadow-flush` — pressed-in effect
+- `--bds-shadow-modal`, `--bds-shadow-float` — overlays
+- `--bds-shadow-focus` — focus ring (double-ring bullseye)
 
 ### Motion
 
-- `--duration-fast` (120ms) ... `--duration-panel` (540ms)
-- `--ease`, `--ease-in`, `--ease-in-out`, `--ease-instrument`, `--ease-spring`
+- `--bds-duration-fast` (120ms) ... `--bds-duration-panel` (540ms)
+- `--bds-ease`, `--bds-ease-in`, `--bds-ease-in-out`, `--bds-ease-instrument`, `--bds-ease-spring`
 
 ---
 

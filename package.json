@@ -1,6 +1,6 @@
 {
   "name": "@brainstorm/design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared design tokens and primitives for the Brainstorm product family — the 'Instrument Console' visual language.",
   "type": "module",
   "private": true,
