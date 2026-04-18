@@ -12,8 +12,14 @@
     "CHANGELOG.md"
   ],
   "exports": {
-    "./tokens.css": "./tokens.css",
-    "./fonts.css": "./fonts.css",
+    "./tokens.css": {
+      "style": "./tokens.css",
+      "default": "./tokens.css"
+    },
+    "./fonts.css": {
+      "style": "./fonts.css",
+      "default": "./fonts.css"
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": [
