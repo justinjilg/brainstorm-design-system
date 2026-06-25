@@ -10,7 +10,7 @@ This package is the **single source of truth** for color, type, spacing, shadows
 
 The chrome is near-colorless. All chroma comes from content — provider logos, chart data, status semantics. The interface itself is cool graphite through bone with no chromatic accent. **Pure white is the rare highlight, used to mark the active, the focused, the committed. When white appears, it means something.**
 
-Status colors (`--sig-ok`, `--sig-warn`, `--sig-err`, `--sig-info`) are reserved for *real signals* about system state — not decoration.
+Status colors (`--bds-sig-ok`, `--bds-sig-warn`, `--bds-sig-err`, `--bds-sig-info`) are reserved for *real signals* about system state — not decoration.
 
 ---
 
@@ -68,16 +68,31 @@ import "@brainstorm/design-system/tokens.css";
 // Do NOT import fonts.css here — use next/font/google for self-hosting.
 ```
 
-Then load fonts via `next/font/google`:
+Then load fonts via `next/font/google`. `tokens.css` declares its font
+families by literal name (`"Fraunces"`, `"IBM Plex Sans"`, `"JetBrains Mono"`,
+`"Figtree"`), so configure each `next/font` loader to match that exact family
+name. The simplest way is to opt into next/font's `adjustFontFallback` and
+apply the loaded `className` to `<body>` — the literal names in the tokens then
+resolve against the self-hosted fonts:
 
 ```tsx
 import { Fraunces, IBM_Plex_Sans, JetBrains_Mono, Figtree } from "next/font/google";
 
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-display-loaded" });
-const plex = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans-loaded" });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-mono-loaded" });
-const ui = Figtree({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-ui-loaded" });
+// Each loader self-hosts the font; the family name registered by next/font
+// matches the literal name referenced in tokens.css (--bds-font-display, etc.).
+const fraunces = Fraunces({ subsets: ["latin"] });
+const plex = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "600"] });
+const ui = Figtree({ subsets: ["latin"], weight: ["500", "600", "700"] });
+
+// In <body className={...}>, compose the className of whichever font is the
+// page default; the others resolve via the literal family names in the tokens.
 ```
+
+> Note: the tokens reference fonts by literal family name, not by a
+> `var(--font-*)` CSS variable. If you prefer next/font's `variable` option,
+> you must override the `--bds-font-*` tokens to point at those variables in
+> your own CSS (e.g. `--bds-font-display: var(--font-fraunces), serif;`).
 
 ### Vite / plain HTML — BrainstormRouter (eventually)
 
