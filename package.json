@@ -5,6 +5,10 @@
   "type": "module",
   "private": true,
   "license": "UNLICENSED",
+  "packageManager": "pnpm@10.23.0",
+  "engines": {
+    "node": ">=22"
+  },
   "files": [
     "tokens.css",
     "fonts.css",
